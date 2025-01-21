@@ -1,0 +1,2 @@
+PickupDateTime,DropoffDateTime,PassengerCount,TripDistance,StoreAndForwardFlag,PULocationID,DOLocationID,FareAmount,TipAmount
+01.01.2020 6:53:34,01.01.2020 6:54:17,4,0,No,129,129,0,0
