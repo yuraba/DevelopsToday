@@ -1,0 +1,21 @@
+CREATE TABLE TaxiTrips (
+    Id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    PickupDateTime DATETIME2(0),
+    DropoffDateTime DATETIME2(0),
+    PassengerCount SMALLINT,
+    TripDistance DECIMAL(5,2),
+    StoreAndForwardFlag CHAR(3),
+    PULocationID SMALLINT,
+    DOLocationID SMALLINT,
+    FareAmount DECIMAL(6,2),
+    TipAmount DECIMAL(5,2)
+);
+
+CREATE NONCLUSTERED INDEX IX_TaxiTrips_PULocationID_TipAmount 
+ON TaxiTrips(PULocationID) INCLUDE(TipAmount);
+
+CREATE NONCLUSTERED INDEX IX_TaxiTrips_TripDistance 
+ON TaxiTrips(TripDistance DESC);
+
+CREATE NONCLUSTERED INDEX IX_TaxiTrips_Duration 
+ON TaxiTrips(PickupDateTime, DropoffDateTime);
